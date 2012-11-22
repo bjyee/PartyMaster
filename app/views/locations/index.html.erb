@@ -1,0 +1,38 @@
+<h1><% title "My Locations" %></h1>
+
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Name</th>
+    <th>Street</th>
+	<th>City</th>
+    <th>State</th>
+	<th>Zip</th>
+    <th>&nbsp;</th>
+  </thead>
+  </tr>
+  <% @locations.each do |location| %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+		<td><%= link_to location.name, location_path(location)  %></td>
+		<td><%= "#{location.street}" %></td>
+		<td><%= "#{location.city}" %></td>
+		<td><%= "#{location.state}" %></td>
+		<td><%= "#{location.zip}" %></td>
+		<td align="center">
+		<% if can? :update, location %>
+			<%= link_to "Edit", edit_location_path(location) %>
+		<% end %>	
+		<% if can? :destroy, location %>		
+			<%= link_to "Destroy", location, :confirm => 'Are you sure?', :method => :delete %>
+		<% end %>	
+		</td>
+	</tr>
+  <% end %>
+</table>
+
+<br>
+<span class="smtext">
+<%= will_paginate @locations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<br>
+<%= link_to 'Add A New Location', new_location_path %>

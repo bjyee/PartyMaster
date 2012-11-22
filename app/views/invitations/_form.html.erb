@@ -1,0 +1,16 @@
+<%= form_for @invitation do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :party_id %><br />
+    <%= f.collection_select :party_id, Party.all.for_host(current_host), :id, :name, :prompt => "Select ..." %>
+  </p>
+  <p>
+    <%= f.label :guest_id %><br />
+    <%= f.collection_select :guest_id, Guest.all.for_host(current_host), :id, :name, :prompt => "Select ..." %>
+  </p>
+  <p>
+    <%= f.label :expected_attendees %><br />
+    <%= f.text_field :expected_attendees %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

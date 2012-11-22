@@ -1,0 +1,47 @@
+<p>
+  <b>Name:</b>
+  <%= @location.name %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= "#{@location.host.first_name} #{@location.host.last_name}"%>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%= @location.street %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @location.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @location.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @location.zip %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @location.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @location.longitude %>
+</p>
+
+<p>
+  <%= image_tag @location.create_map_link %>
+</p>
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>

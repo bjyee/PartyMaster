@@ -1,0 +1,23 @@
+<% title "Party Types" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Active</th>
+  </tr>
+  <% for party_type in @party_types %>
+    <tr>
+      <td><%= party_type.name %></td>
+      <td><%= party_type.active %></td>
+      <td><%= link_to "Show", party_type %></td>
+      <td><%= link_to "Edit", edit_party_type_path(party_type) %></td>
+      <td><%= link_to "Destroy", party_type, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<span class="smtext">
+<%= will_paginate @party_types, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<p><%= link_to "New Party Type", new_party_type_path(party_type) %></p>

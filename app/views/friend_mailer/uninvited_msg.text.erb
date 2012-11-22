@@ -1,0 +1,12 @@
+Dear <%= @invitation.guest.name %>,
+
+You have been uninvited to <%= @invitation.party.name %> by <%= @invitation.party.host.first_name %> <%= @invitation.party.host.last_name %>.
+
+So why were you uninvited from this party?
+
+Maybe you're just not this person's type (note this could mean boring, dumb, annoying, arrogant or just a general weirdo).
+Maybe you suffer from bad breath, body odor, or a nasty combination of the two. 
+Maybe you just give off that creepy, overbearing, psycho stalker vibe. 
+Maybe the idea of doing business with you just seems as appealing as playing leap frog with unicorns. 
+Regardless of the reason, please take the hint and accept the fact that you were rejected and then get over it; 
+and please do your best to forget about the person who directed you this page because trust us, <%= @invitation.party.host.first_name %> <%= @invitation.party.host.last_name %> already forgotten about you.

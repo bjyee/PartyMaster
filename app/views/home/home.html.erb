@@ -1,0 +1,17 @@
+<% if logged_in? %>
+	<h2>Welcome, <%= current_host.first_name %> <%= current_host.last_name %></h2>
+	
+	<p>You may navigate through this website using the navagation bar above.</p>
+<% else %>
+	<h1>Welcome To Party Master</h1>
+
+	<p>
+	Hello! Party Master is a web application that allows users to create parties,
+	invite guests and send ivitations.
+	</p>
+
+	<p>If you are a registered user, <%= link_to "click here to login.", login_path %></p>
+	
+	
+	<p>If you are not, <%= link_to "click here to signup.", signup_path %></p>
+<% end %>

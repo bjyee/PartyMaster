@@ -1,0 +1,76 @@
+<% title "Party" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @party.name %>
+</p>
+<p>
+  <strong>Host:</strong>
+  <%= "#{@party.host.first_name} #{@party.host.last_name}"%>
+</p>
+<p>
+  <strong>Party Date:</strong>
+  <%= @party.party_date.strftime("%B %d, %Y") %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @party.location.name %>
+</p>
+<p>
+  <strong>Time:</strong>
+  <%= "#{@party.start_time.strftime("%I:%M %p")} - #{@party.end_time.strftime("%I:%M %p")}" %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @party.description %>
+</p>
+<p>
+	<strong>RSVP date:</strong>
+    <% if @party.rsvp_date.nil? %>
+		<%= "No RSVP required" %>
+	<% else %>
+		<%= @party.rsvp_date.strftime("%B %d, %Y") %>		
+		</p>
+		<p>
+		  <strong>Expected Attendance:</strong>
+		  <%= @party.expected %>
+		</p>
+		<p>
+		  <strong>Confirmed Attendance:</strong>
+		   <%= @party.confirmed %>
+	<% end %>
+</p>	
+<br>
+<p>
+  <strong>Invited Guests:</strong><br>
+	<table class="datagrid">
+	  <thead class="datagrid">
+		<th>Guest</th>
+		<th>Expected Attendees</th>
+		<th>&nbsp;</th>
+	  </thead>
+	  <% for invitation in @invited %>
+		<tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+		  <td><%= link_to invitation.guest.name, invitation_path(invitation) %></td>
+		  <td><%= invitation.expected_attendees %></td>
+		  <td align="center">
+		  <% if can? :update, invitation %>
+			<%= link_to "Edit", edit_invitation_path(invitation) %>
+		  <% end %>
+		  <% if can? :destroy, invitation %>
+			<%= link_to "Destroy", invitation, :confirm => 'Are you sure?', :method => :delete %>
+		  <% end %>
+		  </td>
+		</tr>
+	  <% end %>
+	</table>
+</p>
+<p>
+  <%= link_to "Edit", edit_party_path(@party) %> |
+  <%= link_to "Destroy", @party, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", parties_path %>
+</p>
+<p>
+  <%= link_to "Send an Invitation", new_invitation_path %>
+</p>
+

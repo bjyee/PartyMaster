@@ -1,0 +1,36 @@
+<h1><% title "My Parties" %></h1>
+
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Name</th>
+    <th>RSVPs</th>
+	<th>&nbsp;</th>
+  </thead>
+  <% for party in @parties %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to party.name , party_path(party) %></td>
+      <td><%= party.confirmed %></td>
+      <td align="center">
+		<% if can? :update, party %>
+			<%= link_to "Edit", edit_party_path(party) %>
+		<% end %>
+		<% if can? :destroy, party %>
+			<%= link_to "Destroy", party, :confirm => 'Are you sure?', :method => :delete %>
+		<% end %>
+	  </td>
+    </tr>
+  <% end %>
+</table>
+
+<span class="smtext">
+<%= will_paginate @parties, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<p>
+	<% if can? :create, Party %>
+		<%= link_to "New Party", new_party_path(party) %>
+	<% end %>
+</p>
+<p>
+  <%= link_to "Send an Invitation", new_invitation_path %>
+</p>

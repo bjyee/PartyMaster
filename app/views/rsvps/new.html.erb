@@ -1,0 +1,9 @@
+<h1>Rsvp</h1>
+
+<%= form_tag edit_rsvp_path do %>
+  <p>
+    <%= label_tag :invite_code, "Invitation Code" %><br />
+    <%= text_field_tag :invite_code, params[:invite_code] %>
+  </p>
+  <p><%= submit_tag "Enter" %></p>
+<% end %>

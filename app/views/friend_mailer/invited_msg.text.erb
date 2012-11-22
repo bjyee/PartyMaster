@@ -1,0 +1,19 @@
+Dear <%= @invitation.guest.name %>,
+
+You are invited by <%= @invitation.party.host.first_name %> <%= @invitation.party.host.last_name %> 
+
+To: 	<%= @invitation.party.name %>
+
+Date: 	<%= @invitation.party.party_date %>
+
+Time: 	<%= @invitation.party.start_time.strftime("%I:%M %p") %> - <%= @invitation.party.end_time.strftime("%I:%M %p") %> 
+
+Place:	<%= @invitation.party.location.name %> 
+		<%= @invitation.party.location.street %> 
+		<%= @invitation.party.location.city %>, <%= @invitation.party.location.state %> <%= @invitation.party.location.zip %> 
+
+invite code: <%= @invitation.invite_code %>
+		
+<% if !@invitation.party.rsvp_date.nil? %>	
+	RSVP by: <%= @invitation.party.rsvp_date.strftime("%Y-%m-%d") %>
+<% end %>

@@ -1,0 +1,31 @@
+<h1><% title "My Guests" %></h1>
+
+<table class="datagrid">
+  <thead class="datagrid">
+	<th>Name</th>
+	<th>Email</th>
+	<th>&nbsp;</th>
+  </tr>
+  <% for guest in @guestz %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+  	  <td><%= link_to guest.name , guest_path(guest) %></td>
+	  <td><%= mail_to guest.email, guest.email , :encode => "Javascript" %></td>
+      <td align="center">
+	  <% if can? :update, guest %>
+		<%= link_to "Edit", edit_guest_path(guest) %> 
+	  <% end %>
+	  <% if can? :destroy, guest %>
+		<%= link_to "Destroy", guest, :confirm => 'Are you sure?', :method => :delete %>
+      <% end %>
+	  </td>
+    </tr>
+  <% end %>
+</table>
+
+<span class="smtext">
+<%= will_paginate @guests, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<p>
+<%= link_to "Add A New Guest", new_guest_path(guest) %>
+</p>

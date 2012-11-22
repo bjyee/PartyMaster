@@ -1,0 +1,38 @@
+one:
+<<<<<<< HEAD
+  host_id: 1
+  name: MyString
+  party_date: 2011-03-02
+  location: MyString
+  start_time: 2011-03-02 17:46:30
+  end_time: 2011-03-02 17:46:30
+  description: MyText
+  rsvp_date: 2011-03-02
+
+two:
+  host_id: 1
+  name: MyString
+  party_date: 2011-03-02
+  location: MyString
+  start_time: 2011-03-02 17:46:30
+  end_time: 2011-03-02 17:46:30
+  description: MyText
+  rsvp_date: 2011-03-02
+=======
+  name: MyString
+  location: MyString
+  date: 2011-02-27
+  start_time: 2011-02-27 14:25:08
+  end_time: 2011-02-27 14:25:08
+  description: MyText
+  rsvp_date: 2011-02-27
+
+two:
+  name: MyString
+  location: MyString
+  date: 2011-02-27
+  start_time: 2011-02-27 14:25:08
+  end_time: 2011-02-27 14:25:08
+  description: MyText
+  rsvp_date: 2011-02-27
+>>>>>>> 2c79fae30c55cb891b560c030e55f55d8772f926

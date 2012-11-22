@@ -1,0 +1,25 @@
+<% title "Host" %>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @host.first_name %>
+</p>
+<p>
+  <strong>Last Name:</strong>
+  <%= @host.last_name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @host.email %>
+</p>
+<p>
+  <strong>Username:</strong>
+  <%= @host.username %>
+</p>
+<!-- <p>
+  <strong>Password:</strong>
+  <%= @host.password %>
+</p> -->
+<p>
+  <%= link_to "Edit", edit_host_path(@host) %>
+</p>

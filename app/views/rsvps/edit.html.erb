@@ -1,0 +1,30 @@
+<h1><% title "RSVP" %></h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rsvp.party.name %>
+</p>
+<p>
+  <strong>Party Date:</strong>
+  <%= @rsvp.party.party_date.strftime("%B %d, %Y") %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @rsvp.party.location.name %>
+</p>
+<p>
+  <strong>Time:</strong>
+  <%= "#{@rsvp.party.start_time.strftime("%I:%M %p")} - #{@rsvp.party.end_time.strftime("%I:%M %p")}" %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @rsvp.party.description %>
+</p>
+
+<%= form_for @rsvp do |f| %>
+  <p>
+    <%= f.label :actual_attendees %><br />
+    <%= f.text_field :actual_attendees %>
+  </p>
+  <p><%= submit_tag "RSVP" %></p>
+<% end %>
